@@ -1,7 +1,10 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_from_directory
 
 app = Flask(__name__)
 
+@app.route("/favicon.png")
+def favicon():
+    return send_from_directory("static", "favicon.png")
 
 @app.route("/")
 def inicio():
